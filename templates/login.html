@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=chrome">
+    <title>登录</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/static/js/jquery-3.4.1.js"></script>
+    <script>
+        $(function(){
+            if("{{.}}" == "用户名或密码不正确"){
+                $("#errMsg").text("用户名或密码不正确");
+            }
+        })
+    </script>
+</head>
+<header class="text-gray-600 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span class="ml-3 text-xl">图书馆借阅推荐系统</span>
+        </a>
+        <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+            <a class="mr-5 hover:text-gray-900">首页</a>
+            <a class="mr-5 hover:text-gray-900">书架</a>
+            <a class="mr-5 hover:text-gray-900">推荐中心</a>
+            <a class="mr-5 hover:text-gray-900">设置</a>
+        </nav>
+        <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">更多
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+        </button>
+    </div>
+</header>
+<body>
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+        <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+            <h1 class="title-font font-medium text-3xl text-gray-900">基于协同过滤算法和KNN图书馆借阅推荐系统</h1>
+            <p class="leading-relaxed mt-4">协同过滤算法通过对用户历史行为数据的挖掘发现用户的偏好，基于不同的偏好对用户进行群组划分并推荐品味相似的商品。</p>
+            <p class="leading-relaxed mt-0">KNN算法是一种分类算法， 1968年由Cover和Hart提出，应用场景有字符识别、文本分类、图像识别等领域。</p>
+        </div>
+        <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+            <form action="/login" method="post">
+            <h1 class="text-gray-900 text-lg font-medium title-font mb-5">登录</h2>
+                    <div class="relative mb-4">
+                        <label for="password" class="leading-7 text-sm text-gray-600">账号</label>
+                        <input type="text" placeholder="手机号\邮箱\其他" id="username" name="username" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    </div>
+                    <div class="relative mb-4">
+                        <label for="password" class="leading-7 text-sm text-gray-600">密码</label>
+                        <input type="password" placeholder="请输入密码" id="password" name="password" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    </div>
+                    <div class="relative mb-4">
+                        <span id="errMsg" style="color: red"></span>
+                        <input type="submit" value="登录" class="w-full text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg mb-1">
+                        <button style='background-color:grey;color:white' class="w-full ext-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"><a href="/pages/user/register.html">注册</a></button>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-3 md-1">未注册过本网站的手机号，我们将自动帮你注册账号</p>
+                    <p class="text-xs text-gray-500 mt-1">
+                        登录或完成注册即代表你同意<a data-v-25aa3c48="" target="_blank" href="https://www.bilibili.com/protocal/licence.html">《用户协议》</a>和<a data-v-25aa3c48="" target="_blank" href="https://www.bilibili.com/protocal/licence.html">《隐私政策》</a>
+                    </p>
+            </h1>
+            </form>
+        </div>
+    </div>
+</section>
+<footer class="navbar-fixed-bottom text-gray-600 body-font">
+    <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+        <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span class="ml-3 text-xl">图书馆借阅推荐系统</span>
+        </a>
+        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2020 Tailblocks —
+            <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@knyttneve</a>
+            <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@clog</a>
+        </p>
+        <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+        <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank"> 📓 📔 📒 📕 📗 📘 📙 </a>
+      </span>
+    </div>
+</footer>
+</body>
+
+</html>
